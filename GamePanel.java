@@ -290,6 +290,12 @@ public class GamePanel extends JPanel
         if(pezzo == null)
             return;
         pezzo.ruotare();
+        if(pezzo.getMargineSinistra() < 0)
+            pezzo.setX(0);
+        if(pezzo.getMargineDestra() >= colonne)
+            pezzo.setX(colonne - pezzo.getLarghezza());
+        if(pezzo.getMargineInferiore() >= righe)
+            pezzo.setY(righe - pezzo.getAltezza());
         repaint();
     }
     
